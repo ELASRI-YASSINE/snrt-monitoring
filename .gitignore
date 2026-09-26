@@ -1,0 +1,30 @@
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Local temporary files
+*.tmp
+*.swp
+
+# Test / coverage
+coverage/
+
+# Docker
+docker-compose.override.yml

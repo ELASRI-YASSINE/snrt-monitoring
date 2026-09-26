@@ -1,0 +1,12 @@
+groups:
+  - name: snrt-monitoring
+    rules:
+
+      - alert: AppDown
+        expr: up{job="app"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node.js application is down"
+          description: "Prometheus cannot scrape the Node.js application."
