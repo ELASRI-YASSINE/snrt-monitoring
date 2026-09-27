@@ -71,7 +71,7 @@ jobs:
           format: table
           exit-code: 1
           severity: CRITICAL,HIGH
-  docker-build:
+  docker-image-scan:
     runs-on: ubuntu-latest
 
     steps:
@@ -83,4 +83,13 @@ jobs:
         run: |
           docker build \
             -t snrt-monitoring:${{ github.sha }} \
+            .
+
+      - name: Run Trivy image scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: snrt-monitoring:${{ github.sha }}
+          format: table
+          exit-code: 1
+          severity: CRITICAL,HIGH
             .
